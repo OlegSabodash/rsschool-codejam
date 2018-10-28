@@ -4,20 +4,23 @@ const sumOfOther = require('./src/sumOfOther.js');
 
 const make = require('./src/make.js');
 
-    function sum(a, b) {
-        return a + b;
-    }
+const recursion = require('./src/recursion.js');
 
-    function div(a, b) {
-        return Math.floor(a / b);
-    }
+function sum(a, b) {
+    return a + b;
+}
 
-    function multy(a, b) {
-        return a * b;
-    }
-    function deff(a, b) {
-        return a - b;
-    }
+function div(a, b) {
+    return Math.floor(a / b);
+}
+
+function multy(a, b) {
+    return a * b;
+}
+function deff(a, b) {
+    return a - b;
+}
+
 
 describe('sumOfOther', function () {
     it('1', function () {
@@ -127,108 +130,108 @@ describe('sumOfOther', function () {
         assert.deepEqual(result, { error: 'Not array' });
     });
     it('14', function () {
-        const result = sumOfOther("Math me some numbers");
+        const result = sumOfOther("str");
         assert.deepEqual(result, { error: 'Not array' });
     });
     it('15', function () {
         const result = sumOfOther({});
         assert.deepEqual(result, { error: 'Not array' });
-    }); 
+    });
 
 
 
 
-    
-    
-    
+
+
+
     describe('make', function () {
         it('1', function () {
             const result = make(15)(34, 21, 666)(41)(sum);
-            assert.equal(result, 777 );
+            assert.equal(result, 777);
         });
-    
+
         it('2', function () {
             const result = make(15)(sum);
-            assert.equal(result, 15 );
+            assert.equal(result, 15);
         });
-    
+
         it('3', function () {
             const result = make(15)(43, 12, 145)(23)(56)(78)(sum);
-            assert.equal(result, 372 );
+            assert.equal(result, 372);
         });
-    
+
         it('4', function () {
-            const result = make(10,65,35)(sum);
-            assert.equal(result, 110 );
+            const result = make(10, 65, 35)(sum);
+            assert.equal(result, 110);
         });
-    
+
         it('5', function () {
-            const result = make(12, 45, 67, 87, 789, 12)(123, 124,124,235,346,6445)(sum);
-            assert.equal(result, 8409 );
+            const result = make(12, 45, 67, 87, 789, 12)(123, 124, 124, 235, 346, 6445)(sum);
+            assert.equal(result, 8409);
         });
-    
+
         it('6', function () {
-            const result = make(388)(78, 44562, 567)(66)(5234)(234,345)(sum);
-            assert.equal(result, 51474 );
+            const result = make(388)(78, 44562, 567)(66)(5234)(234, 345)(sum);
+            assert.equal(result, 51474);
         });
-    
+
         it('7', function () {
-            const result = make(3,4,7)(sum);
-            assert.equal(result, 14 );
+            const result = make(3, 4, 7)(sum);
+            assert.equal(result, 14);
         });
         it('8', function () {
-            const result = make(34,33)(45,56)(sum);
-            assert.equal(result, 168 );
+            const result = make(34, 33)(45, 56)(sum);
+            assert.equal(result, 168);
         });
-    
+
         it('9', function () {
-            const result = make(123,56)(34)(45)(56)(78)(34)(23)(789)(234)(233,235)(123,23,234,231,35,634,6234)(sum);
-            assert.equal(result, 9454 );
+            const result = make(123, 56)(34)(45)(56)(78)(34)(23)(789)(234)(233, 235)(123, 23, 234, 231, 35, 634, 6234)(sum);
+            assert.equal(result, 9454);
         });
-    
+
         it('10', function () {
             const result = make(5678885)(345667)(sum);
-            assert.equal(result, 6024552 );
+            assert.equal(result, 6024552);
         });
 
         it('11', function () {
-            const result = make(23423)(234,234,76)(deff);
-            assert.equal(result, 22879 );
+            const result = make(23423)(234, 234, 76)(deff);
+            assert.equal(result, 22879);
         });
 
 
         it('12', function () {
-            const result = make(2342,78,98,56,32,56,4)(56)(deff);
-            assert.equal(result, 1962 );
+            const result = make(2342, 78, 98, 56, 32, 56, 4)(56)(deff);
+            assert.equal(result, 1962);
         });
 
         it('13', function () {
-            const result = make(34,354,67)(23,678)(deff);
-            assert.equal(result, -1088 );
+            const result = make(34, 354, 67)(23, 678)(deff);
+            assert.equal(result, -1088);
         });
 
         it('14', function () {
             const result = make(345)(345)(43)(div);
-            assert.equal(result, 0 );
+            assert.equal(result, 0);
         });
 
         it('15', function () {
             const result = make(34567773)(234)(345)(div);
-            assert.equal(result, 428 );
+            assert.equal(result, 428);
         });
         it('16', function () {
             const result = make(657)(45)(54)(multy);
-            assert.equal(result, 1596510 );
+            assert.equal(result, 1596510);
         });
 
         it('17', function () {
             const result = make(123)(456)(56)(multy);
-            assert.equal(result, 3140928 );
+            assert.equal(result, 3140928);
         });
 
         it('18', function () {
             const result = make(546)(75)(1)(435)(657)(multy);
-            assert.equal(result, 11703305250 );
+            assert.equal(result, 11703305250);
         });
 
         it('19', function () {
@@ -236,14 +239,49 @@ describe('sumOfOther', function () {
             assert.deepEqual(result, { error: 'Not number' });
         });
         it('20', function () {
-            const result = make("Math me some numbers");
+            const result = make("str");
             assert.deepEqual(result, { error: 'Not number' });
         });
         it('21', function () {
             const result = make({});
             assert.deepEqual(result, { error: 'Not number' });
-        }); 
-        
+        });
+
+    });
+
+
+    describe('Recursion', function () {
+        it('1', function () {
+            const result = recursion({ "value": 100, "left": { "value": 90, "left": { "value": 70 }, "right": { "value": 99 } }, "right": { "value": 120, "left": { "value": 110 }, "right": { "value": 130 } } });
+            assert.deepEqual(result, [[100], [90, 120], [70, 99, 110, 130]]);
+        });
+        it('2', function () {
+            const result = recursion({ "value": 15, "left": { "value": 46, "left": { "value": 789 }, "right": { "value": 45 } }, "right": { "value": 33, "left": { "value": 1 }, "right": { "value": 3 } } });
+            assert.deepEqual(result, [[15], [46, 33], [789, 45, 1, 3]]);
+        });
+
+        it('3', function () {
+            const result = recursion({ "value": 1, "left": { "value": 2, "left": { "value": 4 }, "right": { "value": 5 } }, "right": { "value": 3 } });
+            assert.deepEqual(result, [[1], [2, 3], [4, 5]]);
+        });
+
+        it('4', function () {
+            const result = recursion({ "value": 1, "left": { "value": 2, "left": { "value": 4 }, "right": { "value": 5 } }, "right": { "value": 3, "left": { "value": 6 }, "right": { "value": 7 } } });
+            assert.deepEqual(result, [[1], [2, 3], [4, 5, 6, 7]]);
+        });
+
+        it('5', function () {
+            const result = recursion();
+            assert.deepEqual(result, { error: 'Not obj' });
+        });
+        it('6', function () {
+            const result = recursion("str");
+            assert.deepEqual(result, { error: 'Not obj' });
+        });
+        it('7', function () {
+            const result = recursion(12);
+            assert.deepEqual(result, { error: 'Not obj' });
+        });
     });
 });
 
